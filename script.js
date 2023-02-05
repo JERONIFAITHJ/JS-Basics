@@ -31,10 +31,6 @@ console.log("Jeroni", b);
 const arr = [1, 2, 3, 4, 'Jero', { name: 'Jero' }]
 console.log(arr);
 
-// Object is a collection of key value pairs
-const obj = { name: 'Baskar', age: 21 };
-console.log(obj);
-
 // Anonymous function
 (() => {
     console.log('hello world');
@@ -83,3 +79,84 @@ const type3Fn3 = (name, age) => {
     return name
 }
 console.log(type1Function(), type2Fn(), type3Fn1(), type3Fn2('JERONI'));
+
+// Object is a collection of key value pairs
+const obj = { name: 'Baskar', age: 21 };
+const obj1 = { 'name': 'Jero' }
+
+const allDataTypesObj = {
+    firstName: 'Baskar',
+    age: 40,
+    gpa: 8.0,
+    marks: [100,90,100,90,80],
+    address: {
+        flatNo: 21,
+        flatName: 'Ramco'
+    },
+    married: false,
+    fullName(secondName){
+        this.name = this.firstName + " " + secondName;
+        return this.name;
+    }
+}
+
+console.log(obj.name, obj1['name']);    //  Object values can either be accessed by using (.)dot operator or ([])square brackets
+allDataTypesObj.js = 'fresher'; // To add an extra key value pair
+allDataTypesObj.age = 20;
+
+console.log(allDataTypesObj);
+console.log(allDataTypesObj.fullName('Pandian'));
+
+// Call Stack, Heap
+
+// Call Stack -- where javascript engine executes the js code
+// Stack definition - Last In First Out (LIFO)
+// JS executes in two phases -- 1. Creation Phase 2. Execution phase
+// Primitive data types memory -- Call Stack  (stack can identify the changes occured in primitive types)
+// Non Primitive data types reference -- Call Stack (reference stays the same, data may change inside heap)
+
+// Heap (Stores arrays, functions, objects)
+
+// Copying values
+
+// Primitive
+const copy1 = 50;
+const copy2 = copy1;
+console.log(copy1);
+
+// Non primitive
+const copyObj1 = { age: 21 };       //    copyObj1 --> heap: {age: 21} <-- copyObj2
+console.log(copyObj1);
+const copyObj2 = copyObj1;
+copyObj2.age = 50;
+console.log(copyObj1);
+
+// Ternary operator (?:)
+let myAge = 21;
+let canVote = myAge > 18 ? 'You can vote' : 'You cannot vote';
+
+// Template literal (``)
+let myName = 'Baskar';
+console.log(`My name is ${myName} and ${myAge > 18 ? 'I can vote' : 'I cannot vote'}`);
+
+// Loops
+// For loop
+for(let i = 0; i < 3; i++){
+    console.log(`From regular for loop ${i}`);
+}
+
+// For of loop
+for(let i of arr){
+    console.log('From for of loop',i);
+}
+// ERROR for(let i of obj){
+//     console.log('From for of loop',i);
+// }
+
+// For in loop
+for(let i in arr){
+    console.log(i);
+}
+for(let i in obj){
+    console.log(i);
+}
