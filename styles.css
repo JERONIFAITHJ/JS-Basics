@@ -1,6 +1,8 @@
-.headingStyles{
-    color: aqua
+div{
+    width: 100%;
+    text-align: center;
 }
-#head{
-    font-size: 50px;
+#clickme{
+    padding: 10px;
+    margin: 50px;
 }
